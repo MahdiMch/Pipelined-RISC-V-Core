@@ -1,0 +1,454 @@
+Analysis & Synthesis report for Pipeline
+Mon Mar 25 22:10:09 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Port Connectivity Checks: "memory_cycle:Memory"
+ 10. Port Connectivity Checks: "execute_cycle:Execute|ALU:alu"
+ 11. Port Connectivity Checks: "execute_cycle:Execute|Mux_3_by_1:srcb_mux"
+ 12. Port Connectivity Checks: "decode_cycle:Decode|Sign_Extend:sign_extend"
+ 13. Port Connectivity Checks: "decode_cycle:Decode|Register_file:rf"
+ 14. Port Connectivity Checks: "decode_cycle:Decode|Control_Unit_Top:control|ALU_Decoder:ALU_Decoder"
+ 15. Port Connectivity Checks: "decode_cycle:Decode|Control_Unit_Top:control|main_decoder:Main_Decoder"
+ 16. Port Connectivity Checks: "decode_cycle:Decode|Control_Unit_Top:control"
+ 17. Port Connectivity Checks: "fecth_cycle:Fetch|PC_Adder:pc_adder"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Mar 25 22:10:09 2024          ;
+; Quartus Prime Version              ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                      ; Pipeline                                       ;
+; Top-level Entity Name              ; Pipeline_Top                                   ;
+; Family                             ; MAX 10                                         ;
+; Total logic elements               ; 0                                              ;
+;     Total combinational functions  ; 0                                              ;
+;     Dedicated logic registers      ; 0                                              ;
+; Total registers                    ; 0                                              ;
+; Total pins                         ; 2                                              ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
+; UFM blocks                         ; 0                                              ;
+; ADC blocks                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; 10M08DAF484C8G     ;                    ;
+; Top-level entity name                                            ; Pipeline_Top       ; Pipeline           ;
+; Family name                                                      ; MAX 10             ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                    ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------+---------+
+; ../Source/Pipeline_Top.v         ; yes             ; User Verilog HDL File        ; C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v       ;         ;
+; ../Source/PC.v                   ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/PC.v                 ;         ;
+; ../Source/PC_Adder.v             ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/PC_Adder.v           ;         ;
+; ../Source/Instruction_Memory.v   ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Instruction_Memory.v ;         ;
+; ../Source/Fetch_Cycle.v          ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Fetch_Cycle.v        ;         ;
+; ../Source/ALU_Decoder.v          ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/ALU_Decoder.v        ;         ;
+; ../Source/main_decoder.v         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/main_decoder.v       ;         ;
+; ../Source/Control_Unit_Top.v     ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Control_Unit_Top.v   ;         ;
+; ../Source/Register_File.v        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Register_File.v      ;         ;
+; ../Source/Sign_Extend.v          ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Sign_Extend.v        ;         ;
+; ../Source/Decode_Cycle.v         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Decode_Cycle.v       ;         ;
+; ../Source/Data_mem.v             ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Data_mem.v           ;         ;
+; ../Source/Memory_Cycle.v         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Memory_Cycle.v       ;         ;
+; ../Source/ALU.v                  ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/ALU.v                ;         ;
+; ../Source/Mux.v                  ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Mux.v                ;         ;
+; ../Source/Execute_Cycle.v        ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v      ;         ;
+; ../Source/WriteB_Cycle.v         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/WriteB_Cycle.v       ;         ;
+; ../Source/Hazards_Unit.v         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/USER/Desktop/Project_RiscV/Source/Hazards_Unit.v       ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 2     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
+; |Pipeline_Top              ; 0 (0)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 2    ; 0            ; 0          ; |Pipeline_Top       ; Pipeline_Top ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory_cycle:Memory"                                                                                                                        ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                      ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; RD_M ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "execute_cycle:Execute|ALU:alu"                                                               ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Result[31..1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; Z             ; Output ; Info     ; Explicitly unconnected                                                              ;
+; N             ; Output ; Info     ; Explicitly unconnected                                                              ;
+; C             ; Output ; Info     ; Explicitly unconnected                                                              ;
+; V             ; Output ; Info     ; Explicitly unconnected                                                              ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "execute_cycle:Execute|Mux_3_by_1:srcb_mux"                                          ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; d    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decode_cycle:Decode|Sign_Extend:sign_extend"                                                                                                                                      ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                          ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; ImmSrc ; Input ; Warning  ; Input port expression (2 bits) is wider than the input port (1 bits) it drives.  The 1 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decode_cycle:Decode|Register_file:rf"                                                                                                        ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                                                                                                       ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+; WE3  ; Input ; Warning  ; Input port expression (1 bits) is smaller than the input port (32 bits) it drives.  Extra input bit(s) "WE3[31..1]" will be connected to GND. ;
++------+-------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decode_cycle:Decode|Control_Unit_Top:control|ALU_Decoder:ALU_Decoder"                                                                                                             ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port   ; Type  ; Severity ; Details                                                                                                                                                                          ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; funct7 ; Input ; Warning  ; Input port expression (7 bits) is wider than the input port (1 bits) it drives.  The 6 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; op5    ; Input ; Warning  ; Input port expression (7 bits) is wider than the input port (1 bits) it drives.  The 6 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
++--------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decode_cycle:Decode|Control_Unit_Top:control|main_decoder:Main_Decoder"                                                                       ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                                                                                      ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; zero  ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
+; PCSrc ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                     ;
++-------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "decode_cycle:Decode|Control_Unit_Top:control"                                            ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; ImmSrc[1] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "fecth_cycle:Fetch|PC_Adder:pc_adder" ;
++----------+-------+----------+-----------------------------------+
+; Port     ; Type  ; Severity ; Details                           ;
++----------+-------+----------+-----------------------------------+
+; b[31..3] ; Input ; Info     ; Stuck at GND                      ;
+; b[1..0]  ; Input ; Info     ; Stuck at GND                      ;
+; b[2]     ; Input ; Info     ; Stuck at VCC                      ;
++----------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 2                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Mon Mar 25 22:10:01 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pipeline -c Pipeline
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (12090): Entity "Mux" obtained from "../Source/Mux.v" instead of from Quartus Prime megafunction library File: C:/Users/USER/Desktop/Project_RiscV/Source/Mux.v Line: 1
+Info (12021): Found 19 design units, including 19 entities, in source file /users/user/desktop/project_riscv/source/pipeline_top.v
+    Info (12023): Found entity 1: Pc File: C:/Users/USER/Desktop/Project_RiscV/Source/PC.v Line: 1
+    Info (12023): Found entity 2: PC_Adder File: C:/Users/USER/Desktop/Project_RiscV/Source/PC_Adder.v Line: 1
+    Info (12023): Found entity 3: Instruction_Memory File: C:/Users/USER/Desktop/Project_RiscV/Source/Instruction_Memory.v Line: 1
+    Info (12023): Found entity 4: fecth_cycle File: C:/Users/USER/Desktop/Project_RiscV/Source/Fetch_Cycle.v Line: 5
+    Info (12023): Found entity 5: ALU_Decoder File: C:/Users/USER/Desktop/Project_RiscV/Source/ALU_Decoder.v Line: 1
+    Info (12023): Found entity 6: main_decoder File: C:/Users/USER/Desktop/Project_RiscV/Source/main_decoder.v Line: 1
+    Info (12023): Found entity 7: Control_Unit_Top File: C:/Users/USER/Desktop/Project_RiscV/Source/Control_Unit_Top.v Line: 4
+    Info (12023): Found entity 8: Register_file File: C:/Users/USER/Desktop/Project_RiscV/Source/Register_File.v Line: 1
+    Info (12023): Found entity 9: Sign_Extend File: C:/Users/USER/Desktop/Project_RiscV/Source/Sign_Extend.v Line: 1
+    Info (12023): Found entity 10: decode_cycle File: C:/Users/USER/Desktop/Project_RiscV/Source/Decode_Cycle.v Line: 4
+    Info (12023): Found entity 11: Data_mem File: C:/Users/USER/Desktop/Project_RiscV/Source/Data_mem.v Line: 1
+    Info (12023): Found entity 12: memory_cycle File: C:/Users/USER/Desktop/Project_RiscV/Source/Memory_Cycle.v Line: 2
+    Info (12023): Found entity 13: ALU File: C:/Users/USER/Desktop/Project_RiscV/Source/ALU.v Line: 1
+    Info (12023): Found entity 14: Mux File: C:/Users/USER/Desktop/Project_RiscV/Source/Mux.v Line: 1
+    Info (12023): Found entity 15: Mux_3_by_1 File: C:/Users/USER/Desktop/Project_RiscV/Source/Mux.v Line: 8
+    Info (12023): Found entity 16: execute_cycle File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 4
+    Info (12023): Found entity 17: writeb_cycle File: C:/Users/USER/Desktop/Project_RiscV/Source/WriteB_Cycle.v Line: 2
+    Info (12023): Found entity 18: hazards_unit File: C:/Users/USER/Desktop/Project_RiscV/Source/Hazards_Unit.v Line: 1
+    Info (12023): Found entity 19: Pipeline_Top File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 7
+Info (12127): Elaborating entity "Pipeline_Top" for the top level hierarchy
+Info (12128): Elaborating entity "fecth_cycle" for hierarchy "fecth_cycle:Fetch" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 24
+Info (12128): Elaborating entity "Mux" for hierarchy "fecth_cycle:Fetch|Mux:PC_MUX" File: C:/Users/USER/Desktop/Project_RiscV/Source/Fetch_Cycle.v Line: 20
+Info (12128): Elaborating entity "Pc" for hierarchy "fecth_cycle:Fetch|Pc:Program_Counter" File: C:/Users/USER/Desktop/Project_RiscV/Source/Fetch_Cycle.v Line: 26
+Info (12128): Elaborating entity "Instruction_Memory" for hierarchy "fecth_cycle:Fetch|Instruction_Memory:IMEM" File: C:/Users/USER/Desktop/Project_RiscV/Source/Fetch_Cycle.v Line: 31
+Warning (10030): Net "Mem.data_a" at Instruction_Memory.v(6) has no driver or initial value, using a default initial value '0' File: C:/Users/USER/Desktop/Project_RiscV/Source/Instruction_Memory.v Line: 6
+Warning (10030): Net "Mem.waddr_a" at Instruction_Memory.v(6) has no driver or initial value, using a default initial value '0' File: C:/Users/USER/Desktop/Project_RiscV/Source/Instruction_Memory.v Line: 6
+Warning (10030): Net "Mem.we_a" at Instruction_Memory.v(6) has no driver or initial value, using a default initial value '0' File: C:/Users/USER/Desktop/Project_RiscV/Source/Instruction_Memory.v Line: 6
+Info (12128): Elaborating entity "PC_Adder" for hierarchy "fecth_cycle:Fetch|PC_Adder:pc_adder" File: C:/Users/USER/Desktop/Project_RiscV/Source/Fetch_Cycle.v Line: 36
+Info (12128): Elaborating entity "decode_cycle" for hierarchy "decode_cycle:Decode" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 49
+Info (12128): Elaborating entity "Control_Unit_Top" for hierarchy "decode_cycle:Decode|Control_Unit_Top:control" File: C:/Users/USER/Desktop/Project_RiscV/Source/Decode_Cycle.v Line: 35
+Warning (10034): Output port "Branch" at Control_Unit_Top.v(12) has no driver File: C:/Users/USER/Desktop/Project_RiscV/Source/Control_Unit_Top.v Line: 12
+Info (12128): Elaborating entity "main_decoder" for hierarchy "decode_cycle:Decode|Control_Unit_Top:control|main_decoder:Main_Decoder" File: C:/Users/USER/Desktop/Project_RiscV/Source/Control_Unit_Top.v Line: 28
+Info (12128): Elaborating entity "ALU_Decoder" for hierarchy "decode_cycle:Decode|Control_Unit_Top:control|ALU_Decoder:ALU_Decoder" File: C:/Users/USER/Desktop/Project_RiscV/Source/Control_Unit_Top.v Line: 36
+Info (12128): Elaborating entity "Register_file" for hierarchy "decode_cycle:Decode|Register_file:rf" File: C:/Users/USER/Desktop/Project_RiscV/Source/Decode_Cycle.v Line: 46
+Info (12128): Elaborating entity "Sign_Extend" for hierarchy "decode_cycle:Decode|Sign_Extend:sign_extend" File: C:/Users/USER/Desktop/Project_RiscV/Source/Decode_Cycle.v Line: 51
+Warning (10230): Verilog HDL assignment warning at Sign_Extend.v(5): truncated value with size 252 to match size of target (32) File: C:/Users/USER/Desktop/Project_RiscV/Source/Sign_Extend.v Line: 5
+Info (12128): Elaborating entity "execute_cycle" for hierarchy "execute_cycle:Execute" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 78
+Warning (10858): Verilog HDL warning at Execute_Cycle.v(16): object ZeroE used but never assigned File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 16
+Warning (10036): Verilog HDL or VHDL warning at Execute_Cycle.v(17): object "RegWriteE_r" assigned a value but never read File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at Execute_Cycle.v(17): object "MemWriteE_r" assigned a value but never read File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at Execute_Cycle.v(17): object "ResultSrcE_r" assigned a value but never read File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 17
+Warning (10036): Verilog HDL or VHDL warning at Execute_Cycle.v(18): object "RD_E_r" assigned a value but never read File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 18
+Warning (10036): Verilog HDL or VHDL warning at Execute_Cycle.v(19): object "PCPlus4E_r" assigned a value but never read File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 19
+Warning (10036): Verilog HDL or VHDL warning at Execute_Cycle.v(19): object "RD2_E_r" assigned a value but never read File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 19
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(59): truncated value with size 5 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 59
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(60): truncated value with size 32 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 60
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(61): truncated value with size 32 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 61
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(62): truncated value with size 32 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 62
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(69): truncated value with size 5 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 69
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(70): truncated value with size 32 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 70
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(71): truncated value with size 32 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 71
+Warning (10230): Verilog HDL assignment warning at Execute_Cycle.v(72): truncated value with size 32 to match size of target (1) File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 72
+Warning (10030): Net "ZeroE" at Execute_Cycle.v(16) has no driver or initial value, using a default initial value '0' File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 16
+Info (12128): Elaborating entity "Mux_3_by_1" for hierarchy "execute_cycle:Execute|Mux_3_by_1:srca_mux" File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 26
+Info (12128): Elaborating entity "ALU" for hierarchy "execute_cycle:Execute|ALU:alu" File: C:/Users/USER/Desktop/Project_RiscV/Source/Execute_Cycle.v Line: 47
+Info (12128): Elaborating entity "memory_cycle" for hierarchy "memory_cycle:Memory" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 97
+Info (12128): Elaborating entity "Data_mem" for hierarchy "memory_cycle:Memory|Data_mem:data_mem" File: C:/Users/USER/Desktop/Project_RiscV/Source/Memory_Cycle.v Line: 21
+Info (12128): Elaborating entity "writeb_cycle" for hierarchy "writeb_cycle:WriteBack" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 107
+Info (12128): Elaborating entity "hazards_unit" for hierarchy "hazards_unit:Forwarding_block" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 119
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 8
+    Warning (15610): No output dependent on input pin "rst" File: C:/Users/USER/Desktop/Project_RiscV/Source/Pipeline_Top.v Line: 8
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 4750 megabytes
+    Info: Processing ended: Mon Mar 25 22:10:09 2024
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:09
+
+
